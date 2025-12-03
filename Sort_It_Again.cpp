@@ -7,18 +7,20 @@ public:
     string nm;
     int cls;
     char s;
-    int id;
+    long long int id;
     int math_marks;
     int eng_marks;
 };
 
 bool comp(const Student &a, const Student &b)
 {
-    int totalA = a.math_marks + a.eng_marks;
-    int totalB = b.math_marks + b.eng_marks;
-    if (totalA != totalB)
+    if (a.eng_marks != b.eng_marks)
     {
-        return totalA > totalB; 
+        return a.eng_marks > b.eng_marks;
+    }
+    else if (a.math_marks != b.math_marks)
+    {
+        return a.math_marks > b.math_marks;
     }
     return a.id < b.id;
 }
@@ -37,6 +39,6 @@ int main()
     for (int i = 0; i < T; i++)
     {
         cout << arr[i].nm << " " << arr[i].cls << " " << arr[i].s << " " << arr[i].id << " " << arr[i].math_marks << " " << arr[i].eng_marks << endl;
-    } 
+    }
     return 0;
 }
